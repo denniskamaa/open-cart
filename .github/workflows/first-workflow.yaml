@@ -7,6 +7,12 @@ on:
         branches:
             - main
     workflow_dispatch:
+        inputs:
+            First-input:
+                description: Hello World
+                type: string
+                required: true
+                default: "Default"
         
 jobs:
     build:
@@ -17,12 +23,15 @@ jobs:
                 echo $(npm -v)
                 sudo apt install npm
                 echo $GITHUB_REF
+                echo "String: ${{inputs.First-input}}"
     Check-out:
         runs-on: ubuntu-latest
         needs: [build]
         steps:
             - name: Checkout
               uses: actions/checkout@v3
+            - name: check on variables
+              run: echo $GITHUB_REF
             
 
                 
