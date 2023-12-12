@@ -1,0 +1,20 @@
+name: First Work Flow
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+    workflow_dispatch:
+        
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check and download npm
+              run: |
+                echo $(npm -v)
+                apt install npm
+                echo $GITHUB_REF
+                
