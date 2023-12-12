@@ -7,6 +7,12 @@ on:
         branches:
             - main
     workflow_dispatch:
+        inputs:
+            First-input:
+                description: Hello World
+                type: string
+                required: true
+                default: "Default"
         
 jobs:
     build:
