@@ -15,6 +15,14 @@ jobs:
             - name: Check and download npm
               run: |
                 echo $(npm -v)
-                apt install npm
+                sudo apt install npm
                 echo $GITHUB_REF
+    Check-out:
+        runs-on: ubuntu-latest
+        needs: [build]
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            
+
                 
