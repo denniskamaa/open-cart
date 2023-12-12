@@ -23,6 +23,7 @@ jobs:
                 echo $(npm -v)
                 sudo apt install npm
                 echo $GITHUB_REF
+                echo "String: ${{inputs.First-input}}"
     Check-out:
         runs-on: ubuntu-latest
         needs: [build]
